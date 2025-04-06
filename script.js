@@ -90,64 +90,74 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     //blog management
-    const blogPosts = [
-        {
-            title: "My First Blog Post",
-            date: "2024-04-01",
-            category: "tech",
-            image: "images/blog1.jpg",
-            content: "This is a post about my first portfolio site."
-        },
-        {
-            title: "Learning JavaScript",
-            date: "2024-04-03",
-            category: "education",
-            image: "images/blog2.jpg",
-            content: "Here’s how I started with JS."
-        }
-    ];
+    // blog.json will be fetched and rendered
+let blogPosts = [];
 
-    const blogContainer = document.querySelector('.blog-container');
-    const blogSearch = document.getElementById('blog-search');
-    const blogFilter = document.getElementById('blog-filter');
+const blogContainer = document.getElementById('blog-posts');
+const blogSearchInput = document.getElementById('blog-search-input');
+const blogCategoryFilter = document.getElementById('blog-category-filter');
 
-    function renderBlogs(posts) {
-        blogContainer.innerHTML = '';
-        posts.forEach(post => {
-            const card = document.createElement('div');
-            card.className = 'blog-card';
-            card.innerHTML = `
-                <div class="blog-image"><img src="${post.image}" alt=""></div>
-                <div class="blog-content">
-                    <div class="blog-date">${post.date}</div>
-                    <h3>${post.title}</h3>
-                    <p>${post.content}</p>
-                    <div class="blog-category">${post.category}</div>
-                </div>
-            `;
-            blogContainer.appendChild(card);
-        });
-    }
+// Function to render blog cards
+function renderBlogs(posts) {
+    blogContainer.innerHTML = '';
+    posts.forEach(post => {
+        const card = document.createElement('div');
+        card.className = 'blog-card';
+        card.innerHTML = `
+            <div class="blog-image">
+                <img src="${post.image}" alt="${post.title}">
+            </div>
+            <div class="blog-content">
+                <div class="blog-date">${post.date}</div>
+                <h3>${post.title}</h3>
+                <p>${post.content}</p>
+                <div class="blog-category">${post.category}</div>
+            </div>
+        `;
+        blogContainer.appendChild(card);
+    });
+}
 
-    if (blogContainer) {
-        renderBlogs(blogPosts);
+// Function to set up filtering and searching
+function setupBlogFilters() {
+    blogSearchInput?.addEventListener('input', () => {
+        filterAndRenderBlogs();
+    });
 
-        blogSearch?.addEventListener('input', e => {
-            const searchText = e.target.value.toLowerCase();
-            const filtered = blogPosts.filter(post =>
-                post.title.toLowerCase().includes(searchText) || post.content.toLowerCase().includes(searchText)
-            );
-            renderBlogs(filtered);
-        });
+    blogCategoryFilter?.addEventListener('change', () => {
+        filterAndRenderBlogs();
+    });
+}
 
-        blogFilter?.addEventListener('change', e => {
-            const selected = e.target.value;
-            const filtered = selected === 'all'
-                ? blogPosts
-                : blogPosts.filter(post => post.category === selected);
-            renderBlogs(filtered);
-        });
-    }
+// Filtering logic
+function filterAndRenderBlogs() {
+    const searchQuery = blogSearchInput.value.toLowerCase();
+    const selectedCategory = blogCategoryFilter.value;
+
+    const filtered = blogPosts.filter(post => {
+        const matchesSearch =
+            post.title.toLowerCase().includes(searchQuery) ||
+            post.content.toLowerCase().includes(searchQuery);
+        const matchesCategory =
+            selectedCategory === 'all' || post.category === selectedCategory;
+
+        return matchesSearch && matchesCategory;
+    });
+
+    renderBlogs(filtered);
+}
+
+// Fetch the blog JSON
+if (blogContainer) {
+    fetch('data/blog.json')
+        .then(res => res.json())
+        .then(data => {
+            blogPosts = data;
+            renderBlogs(blogPosts);
+            setupBlogFilters();
+        })
+        .catch(err => console.error('Error loading blog posts:', err));
+}
 
     //project modal group
     const modal = document.querySelector('.modal');
