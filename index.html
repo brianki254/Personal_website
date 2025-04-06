@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header id="header">
+        <div class="container">
+            <div class="logo">
+                <h1>Irungu Brian Kariuki</h1>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="theme-toggle">
+                    <i class="fas fa-sun"></i>
+                    <label class="switch">
+                        <input type="checkbox" id="theme-switch">
+                        <span class="slider round"></span>
+                    </label>
+                    <i class="fas fa-moon"></i>
+                </div>
+                <div class="hamburger">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="section">
+        <div class="container">
+            <div class="greeting-container">
+                <h2 id="greeting">Hello there!</h2>
+                <div class="clock-container">
+                    <div id="live-clock">00:00:00</div>
+                </div>
+            </div>
+            <div class="hero">
+                <div class="hero-text">
+                    <h1>I'm Brian Kariuki</h1>
+                    <h3>3rd Year IST Student</h3>
+                    <p>Passionate about developing innovative solutions and learning new technologies.</p>
+                    <div class="cta-buttons">
+                        <a href="#projects" class="btn primary-btn">View My Work</a>
+                        <a href="#contact" class="btn secondary-btn">Get In Touch</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="images/profile.jpg" alt="Irungu Brian Kariuki" class="profile-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="images/about-me.jpg" alt="About Irungu Brian">
+                </div>
+                <div class="about-text">
+                    <h3>Who am I?</h3>
+                    <p>I am Irungu Brian Kariuki, a third-year Information Science and Technology student with a passion for hardware and its application in digiral solutions. I enjoy working with various technologies and continuously learning new skills.</p>
+                    
+                    <h3>Education</h3>
+                    <p>Currently pursuing a degree in Information Science and Technology, focusing on web development, security, and hardware design.</p>
+                    
+                    <h3>My Skills</h3>
+                    <div class="skills">
+                        <div class="skill">
+                            <span class="skill-name">HTML/CSS</span>
+                            <div class="progress-bar">
+                                <div class="progress-fill" data-width="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <span class="skill-name">JavaScript</span>
+                            <div class="progress-bar">
+                                <div class="progress-fill" data-width="70"></div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <span class="skill-name"> IOT </span>
+                            <div class="progress-bar">
+                                <div class="progress-fill" data-width="75"></div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <span class="skill-name">Data Analysis</span>
+                            <div class="progress-bar">
+                                <div class="progress-fill" data-width="65"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title">My Projects</h2>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="web">Web Dev</button>
+                <button class="filter-btn" data-filter="data">Data Analysis</button>
+                <button class="filter-btn" data-filter="mobile">Mobile Apps</button>
+            </div>
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card" data-category="web">
+                    <div class="project-image">
+                        <img src="images/project1.jpg" alt="E-commerce Website">
+                    </div>
+                    <div class="project-details">
+                        <h3>E-commerce Platform</h3>
+                        <p>A responsive e-commerce website built with HTML, CSS, and JavaScript.</p>
+                        <div class="project-tags">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                        </div>
+                        <button class="btn project-btn" data-project="project1">View Details</button>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card" data-category="data">
+                    <div class="project-image">
+                        <img src="images/project2.jpg" alt="Data Visualization Dashboard">
+                    </div>
+                    <div class="project-details">
+                        <h3>Data Visualization Dashboard</h3>
+                        <p>Interactive dashboard displaying analytics using Python and D3.js.</p>
+                        <div class="project-tags">
+                            <span>Python</span>
+                            <span>D3.js</span>
+                            <span>Data Analysis</span>
+                        </div>
+                        <button class="btn project-btn" data-project="project2">View Details</button>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card" data-category="mobile">
+                    <div class="project-image">
+                        <img src="images/project3.jpg" alt="Mobile App">
+                    </div>
+                    <div class="project-details">
+                        <h3>Student Planner App</h3>
+                        <p>A mobile application to help students manage their schedules and assignments.</p>
+                        <div class="project-tags">
+                            <span>React Native</span>
+                            <span>Firebase</span>
+                            <span>UI/UX</span>
+                        </div>
+                        <button class="btn project-btn" data-project="project3">View Details</button>
+                    </div>
+                </div>
+                
+                <!-- Project 4 -->
+                <div class="project-card" data-category="web">
+                    <div class="project-image">
+                        <img src="images/project4.jpg" alt="Portfolio Website">
+                    </div>
+                    <div class="project-details">
+                        <h3>Portfolio Template</h3>
+                        <p>A customizable portfolio website template for professionals.</p>
+                        <div class="project-tags">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                        </div>
+                        <button class="btn project-btn" data-project="project4">View Details</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Project Modal -->
+        <div id="project-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <div id="modal-content">
+                    <!-- Modal content will be inserted here via JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="blog">
+        <h2>Blog</h2>
+        <p>Some blog posts will go here.</p>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <form id="contact-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
