@@ -392,10 +392,28 @@ input:checked + .slider:before {
     overflow: hidden;
 }
 
-.progress-fill {
+.progress-fill-1 {
     height: 100%;
     background-color: var(--primary-color);
-    width: 0;
+    width: 75%;
+    transition: width 1.5s ease-in-out;
+}
+.progress-fill-2 {
+    height: 100%;
+    background-color: var(--primary-color);
+    width: 60%;
+    transition: width 1.5s ease-in-out;
+}
+.progress-fil-3 {
+    height: 100%;
+    background-color: var(--primary-color);
+    width: 68%;
+    transition: width 1.5s ease-in-out;
+}
+.progress-fill-4{
+    height: 100%;
+    background-color: var(--primary-color);
+    width: 55%;
     transition: width 1.5s ease-in-out;
 }
 
