@@ -104,9 +104,6 @@ function renderBlogs(posts) {
         const card = document.createElement('div');
         card.className = 'blog-card';
         card.innerHTML = `
-            <div class="blog-image">
-                <img src="${post.image}" alt="${post.title}">
-            </div>
             <div class="blog-content">
                 <div class="blog-date">${post.date}</div>
                 <h3>${post.title}</h3>
